@@ -42,8 +42,10 @@ public class BaseClass {
 	//public void configBC() throws Throwable {
 
 		System.out.println("===Launch the Browser===");
-		String BROWSER = fLib.getDataFromPropertiesFile("browser");
+		//String BROWSER = fLib.getDataFromPropertiesFile("browser");
 		//String BROWSER = browser;
+		//insted of recieveing the data from the properties file iam going recieve from cmd line.
+		String BROWSER = System.getProperty("browser",fLib.getDataFromPropertiesFile("browser"));
 		
 		// polymorphism concept
 		if (BROWSER.equals("chrome")) {
@@ -61,9 +63,16 @@ public class BaseClass {
 	@BeforeMethod(groups={"smokeTest","regressionTest"})
 	public void configBM() throws Throwable {
 		System.out.println("==Login to Application==");
-		String URL = fLib.getDataFromPropertiesFile("url");
-		String USERNAME = fLib.getDataFromPropertiesFile("username");
-		String PASSWORD = fLib.getDataFromPropertiesFile("password");
+		//String URL = fLib.getDataFromPropertiesFile("url");
+		//String USERNAME = fLib.getDataFromPropertiesFile("username");
+		//String PASSWORD = fLib.getDataFromPropertiesFile("password");
+		
+		//recieve data from cmd line.
+		String URL= System.getProperty("url",fLib.getDataFromPropertiesFile("url"));
+		String USERNAME = System.getProperty("username",fLib.getDataFromPropertiesFile("username"));
+		String PASSWORD = System.getProperty("password",fLib.getDataFromPropertiesFile("password"));
+		
+		
 		LoginPage lp = new LoginPage(driver);
 		lp.loginToapp(URL, USERNAME, PASSWORD);
 	}
