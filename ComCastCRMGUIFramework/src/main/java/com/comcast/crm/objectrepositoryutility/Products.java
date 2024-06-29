@@ -8,5 +8,9 @@ public class Products {
 	
 	@FindBy(xpath = "//input[@alt='Create Product...']")
 	private WebElement createProductImgBtn;
+	
+	
+	@FindBy(xpath = "searchBtn")
+	private WebElement ele3;
 
 }
