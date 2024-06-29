@@ -13,4 +13,8 @@ public class Products {
 	@FindBy(xpath = "searchBtn")
 	private WebElement ele3;
 
+	
+	@FindBy(name = "search")
+	private WebElement ele2;
+
 }
